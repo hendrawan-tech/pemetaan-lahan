@@ -46,7 +46,7 @@
                                         </div>
                                     </td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->price }}</td>
+                                    <td>{{ Helper::price($item->price) }}</td>
                                     <td>{{ $item->stok }}</td>
                                     <td>{{ $item->land->name }}</td>
                                     <td>{{ $item->plantType->name }}</td>

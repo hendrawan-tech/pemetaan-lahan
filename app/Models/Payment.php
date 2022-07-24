@@ -20,4 +20,9 @@ class Payment extends Model
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

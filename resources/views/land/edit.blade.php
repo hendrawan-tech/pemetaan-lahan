@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
-                                <label>Lattitude</label>
+                                <label>Longitude</label>
                                 <input type="text" name="lattitude" class="form-control"
                                     value="{{ $land->lattitude }}">
                                 @error('lattitude')
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
-                                <label>Longitude</label>
+                                <label>Lattitude</label>
                                 <input type="text" name="longitude" class="form-control"
                                     value="{{ $land->longitude }}">
                                 @error('longitude')

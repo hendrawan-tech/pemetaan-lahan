@@ -47,6 +47,7 @@ class LandController extends Controller
             'lattitude' => 'required|min:3',
             'longitude' => 'required|min:3',
             'plant_type_id' => 'required',
+            'large' => 'required',
         ]);
         $data['user_id'] = Auth::user()->id;
         Land::create($data);
@@ -118,6 +119,7 @@ class LandController extends Controller
             'lattitude' => 'required|min:3',
             'longitude' => 'required|min:3',
             'plant_type_id' => 'required',
+            'large' => 'required',
         ]);
         $land->update($data);
         return redirect('/lands')->with('status', 'Lahan Diubah');

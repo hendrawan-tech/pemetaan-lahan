@@ -15,7 +15,6 @@ class Product extends Model
     {
         return $this->belongsTo(User::class);
     }
-
     public function land()
     {
         return $this->belongsTo(Land::class);
@@ -23,5 +22,13 @@ class Product extends Model
     public function plantType()
     {
         return $this->belongsTo(PlantType::class);
+    }
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+    public function item()
+    {
+        return $this->hasMany(Product::class);
     }
 }

@@ -67,4 +67,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function traking()
+    {
+        return $this->hasMany(Tracking::class);
+    }
+
+    public function detail()
+    {
+        return $this->hasMany(TrackingDetail::class);
+    }
+
+    public function item()
+    {
+        return $this->hasMany(TrackingItem::class);
+    }
 }

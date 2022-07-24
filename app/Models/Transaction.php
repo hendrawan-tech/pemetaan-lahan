@@ -21,6 +21,11 @@ class Transaction extends Model
         return $this->hasMany(ItemTransaction::class);
     }
 
+    public function massage()
+    {
+        return $this->hasMany(MessageTransactions::class);
+    }
+
     public function payment()
     {
         return $this->belongsTo(Payment::class);

@@ -18,6 +18,7 @@ class CreateLandsTable extends Migration
             $table->string("name", 50);
             $table->string("lattitude", 50);
             $table->string("longitude", 50);
+            $table->string("large", 3);
             $table->enum("status", ['Proses Tanam', 'Sudah Panen'])->default("Proses Tanam");
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');

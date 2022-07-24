@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Produk</h1>
@@ -21,7 +20,9 @@
                                 <th>Nama</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
-                                <th>Lahan</th>
+                                @if (Auth::user()->role == 'Petani')
+                                    <th>Lahan</th>
+                                @endif
                                 <th>Jenis Tanaman</th>
                                 <th>Status</th>
                                 <th>Opsi</th>
@@ -37,11 +38,22 @@
                                         </div>
                                     </td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->price }}</td>
+                                    <td>{{ Helper::price($item->price) }}</td>
                                     <td>{{ $item->stok }}</td>
-                                    <td>{{ $item->land->name }}</td>
+                                    @if (Auth::user()->role == 'Petani')
+                                        <td>{{ $item->land->name }}</td>
+                                    @endif
                                     <td>{{ $item->plantType->name }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td>
+                                        {{ $item->status }}
+                                        @if (Auth::user()->role == 'Tengkulak')
+                                            @if ($item->status == 'Proses')
+                                                <a href="/products/{{ $item->id }}"
+                                                    class="btn btn-primary ml-5 btn-sm">Jual
+                                                    Barang</a>
+                                            @endif
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         @if ($item->status == 'Proses')
                                             <a href="/products/{{ $item->id }}/edit"

@@ -63,7 +63,7 @@
                                 <div class="col-12">
                                     <div class="form-group">
                                         <label>Limit</label>
-                                        <input type="number" max="{{ $total }}" min="0" name="limit"
+                                        <input type="number" min="0" name="limit"
                                             class="form-control" value="{{ $limit->limit }}">
                                         @error('limit')
                                             <small class="form-text text-danger">{{ $message }}</small>

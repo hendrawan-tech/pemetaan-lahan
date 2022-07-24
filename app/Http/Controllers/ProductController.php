@@ -101,6 +101,13 @@ class ProductController extends Controller
     {
         Storage::delete($product->image);
         $product->delete();
-        return redirect('/products')->with('status', 'Produk Dihaoys');
+        return redirect('/products')->with('status', 'Produk Dihapus');
+    }
+
+    public function jual($id)
+    {
+        $harvest = Product::where('id', $id)->first();
+        $harvest->update(['status' => 'Tersedia']);
+        return redirect('/products')->with('status', 'Penjualan Di Acc');
     }
 }

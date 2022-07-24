@@ -20,7 +20,9 @@
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
                                 <label>Nama Produk</label>
-                                <input type="text" name="name" class="form-control" value="{{ $product->name }}">
+                                <input type="text" name="name"
+                                    {{ Auth::user()->role == 'Tengkulak' ? 'disabled' : '' }} class="form-control"
+                                    value="{{ $product->name }}">
                                 @error('name')
                                     <small class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -29,7 +31,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
                                 <label>Harga / Kilo</label>
-                                <input type="text" name="price" class="form-control" value="{{ $product->price }}">
+                                <input type="number" name="price" class="form-control" value="{{ $product->price }}">
                                 @error('price')
                                     <small class="form-text text-danger">{{ $message }}</small>
                                 @enderror
@@ -40,7 +42,11 @@
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
                                 <label>Jumlah Panen (Kilo)</label>
-                                <input type="text" name="stok" class="form-control"
+                                @if (Auth::user()->role == 'Tengkulak')
+                                    <input type="hidden" name="name" value="{{ $product->name }}">
+                                @endif
+                                <input type="number" name="stok" class="form-control"
+                                    {{ Auth::user()->role == 'Tengkulak' ? 'max=' . $product->stok . '' : '' }}
                                     value="{{ $product->stok }}">
                                 @error('stok')
                                     <small class="form-text text-danger">{{ $message }}</small>

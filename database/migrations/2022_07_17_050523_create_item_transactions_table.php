@@ -16,6 +16,8 @@ class CreateItemTransactionsTable extends Migration
         Schema::create('item_transactions', function (Blueprint $table) {
             $table->id();
             $table->string("quantity", 6);
+            $table->unsignedBigInteger('transaction_id');
+            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('restrict')->onUpdate('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();

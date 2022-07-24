@@ -21,8 +21,6 @@ class CreateTransactionsTable extends Migration
             $table->enum("status", ['Menunggu Pembayaran', 'Proses', 'Selesai', 'Ditolak'])->default("Menunggu Pembayaran");
             $table->unsignedBigInteger('payment_id');
             $table->foreign('payment_id')->references('id')->on('payments')->onDelete('restrict')->onUpdate('cascade');
-            $table->unsignedBigInteger('item_transaction_id');
-            $table->foreign('item_transaction_id')->references('id')->on('item_transactions')->onDelete('restrict')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SIG - Pemetaan</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,6 +24,7 @@
         integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
         crossorigin="" />
     @stack('styles')
+    @livewireStyles
 </head>
 
 <body id="page-top">
@@ -33,7 +34,7 @@
             <!-- Main Content -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                 <div class="container">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="/">SIG.Pemetaan Pemasaran Bawang Merah</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -43,8 +44,47 @@
                         <div class="navbar-nav ml-auto">
                             @if (Route::has('login'))
                                 @auth
-                                    <a href="{{ url('/dashboard') }}"
-                                        class="nav-link btn btn-primary text-white px-4 ml-4">Dashboard</a>
+                                    <li class="nav-item active">
+                                        <a class="nav-link text-dark" href="/">Beranda</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link text-dark" href="/cart">Keranjang</a>
+                                    </li>
+                                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                                    <!-- Nav Item - User Information -->
+                                    <li class="nav-item dropdown no-arrow">
+                                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span
+                                                class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
+                                            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                        </a>
+                                        <!-- Dropdown - User Information -->
+                                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                            aria-labelledby="userDropdown">
+                                            <a class="dropdown-item" href="/dashboard">
+                                                <i class="fas fa-tachometer-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Dashboard
+                                            </a>
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Profile
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                                                document.getElementById('logout-form').submit();"
+                                                data-toggle="modal" data-target="#logoutModal">
+                                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                Logout
+                                            </a>
+                                            <form action="{{ route('logout') }}" method="POST" id="logout-form"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                        </div>
+                                    </li>
                                 @else
                                     <a href="{{ route('login') }}"
                                         class="text-sm text-gray-700 dark:text-gray-500 underline">Log
@@ -92,6 +132,7 @@
         integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
         crossorigin=""></script>
     @stack('scripts')
+    @livewireScripts
 </body>
 
 </html>

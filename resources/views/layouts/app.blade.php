@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SIG - Pemetaan'</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,9 +20,11 @@
     <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 
 <body id="page-top">
+
     <div id="wrapper">
         @guest
         @else
@@ -32,6 +34,8 @@
                 @include('layouts.sidebar-petani')
             @elseif(Auth::user()->role == 'Tengkulak')
                 @include('layouts.sidebar-tengkulak')
+            @else
+                @include('layouts.sidebar-pembeli')
             @endif
         @endguest
 

@@ -2,10 +2,7 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">{{ config('app.name', 'Pemetaan Lahan') }}</div>
+        <div class="sidebar-brand-text mx-3">SIG - Pemetaan Lahan</div>
     </a>
     <hr class="sidebar-divider my-0">
 
@@ -24,5 +21,15 @@
         <a class="nav-link" href="/harvests">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Hasil Panen</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="/users">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Data User</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="/traces">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Traceability System</span></a>
     </li>
 </ul>
