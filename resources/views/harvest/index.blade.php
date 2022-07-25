@@ -19,7 +19,10 @@
                 <h6 class="m-0 font-weight-bold text-primary">Total Panen : {{ $total }}kg - Limit :
                     {{ $limit->limit }} = {{ $total - $limit->limit }}kg
                 </h6>
-                <a href="/harvests/limit" class="btn btn-primary btn-sm">Limit Desa</a>
+                <div>
+                    <a href="/harvests/limit" class="btn btn-primary btn-sm">Limit Desa</a>
+                    <a href="/harvests/reset" class="btn btn-danger btn-sm">Reset Pertanian</a>
+                </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -30,6 +33,7 @@
                                 <th>Nama</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
+                                <th>Petani</th>
                                 <th>Lahan</th>
                                 <th>Jenis Tanaman</th>
                                 <th>Status</th>
@@ -48,6 +52,7 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ Helper::price($item->price) }}</td>
                                     <td>{{ $item->stok }}</td>
+                                    <td>{{ $item->land->user->name }}</td>
                                     <td>{{ $item->land->name }}</td>
                                     <td>{{ $item->plantType->name }}</td>
                                     <td>{{ $item->status }}</td>

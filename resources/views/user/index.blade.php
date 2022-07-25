@@ -6,7 +6,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">User</h1>
-            <a href="/user/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <a href="/users/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
         </div>
 
@@ -36,13 +36,13 @@
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->role }}</td>
                                     <td class="text-center">
-                                        <a href="/user/{{ $item->id }}/edit"
+                                        <a href="/users/{{ $item->id }}/edit"
                                             class="btn btn-sm btn-primary btn-circle mr-2">
                                             <i class="fas fa-pen"></i>
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-danger btn-circle">
+                                        {{-- <a href="#" class="btn btn-sm btn-danger btn-circle">
                                             <i class="fas fa-trash"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                             @endforeach

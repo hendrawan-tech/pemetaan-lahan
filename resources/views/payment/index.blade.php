@@ -36,9 +36,9 @@
                                             class="btn btn-sm btn-primary btn-circle mr-2">
                                             <i class="fas fa-pen"></i>
                                         </a>
-                                        <a href="#" class="btn btn-sm btn-danger btn-circle">
+                                        {{-- <a href="#" class="btn btn-sm btn-danger btn-circle">
                                             <i class="fas fa-trash"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                             @endforeach

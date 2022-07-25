@@ -17,4 +17,9 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Transaksi Pembelian</span></a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="/profiles">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Profil</span></a>
+    </li>
 </ul>

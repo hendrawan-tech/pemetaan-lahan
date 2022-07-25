@@ -40,7 +40,7 @@
                                                         </div>
                                                         <hr>
                                                         <div style="width: 50px; height: 50px; border-radius: 100%;">
-                                                            <img src="{{ $product->user->avatar == '' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png' : asset($product->user->avatar) }}"
+                                                            <img src="{{ $product->user->image == '' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png' : asset($product->user->image) }}"
                                                                 alt="{{ $product->user->name }}"
                                                                 style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%;">
                                                         </div>

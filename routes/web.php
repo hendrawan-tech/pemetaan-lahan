@@ -36,6 +36,8 @@ Route::get('/get-map', [HomeController::class, 'dataMap']);
 Route::get('/get-geo', [HomeController::class, 'dataGeo']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/profiles', [DashboardController::class, 'profile']);
+Route::put('/profiles/update/{user}', [DashboardController::class, 'updateProfile']);
 
 Route::resource('users', UserController::class);
 Route::resource('lands', LandController::class);
@@ -58,6 +60,7 @@ Route::get('orders/{code}', [OrderController::class, 'show']);
 
 Route::get('harvests', [HarvestController::class, 'index']);
 Route::get('harvests/limit', [HarvestController::class, 'limit']);
+Route::get('harvests/reset', [HarvestController::class, 'reset']);
 Route::put('harvests/limit', [HarvestController::class, 'updateLimit']);
 Route::get('harvests/{id}', [HarvestController::class, 'acc']);
 Route::get('harvest/{land}', [LandController::class, 'panen']);

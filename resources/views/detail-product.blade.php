@@ -43,7 +43,7 @@
                                                     </div>
                                                     <hr>
                                                     <div style="width: 100px; height: 100px; border-radius: 100%;">
-                                                        <img src="{{ $product->user->avatar == '' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png' : asset($product->user->avatar) }}"
+                                                        <img src="{{ $product->user->image == '' ? 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png' : asset($product->user->image) }}"
                                                             alt="{{ $product->user->name }}"
                                                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 100%;">
                                                     </div>
@@ -65,12 +65,18 @@
                                 <p class="card-text">{{ $product->description }}</p>
                             </div>
                         </div>
-                        @if (Auth::user()->role == 'Tengkulak')
-                            @if ($total > $limit->limit && $product->status == 'Tersedia')
-                                <a href="/cart/{{ $product->id }}"
-                                    class="btn btn-primary {{ $total > $limit->limit ? 'd-block' : 'd-none' }}">Tambah
-                                    Ke Keranjang</a>
+                        @if (!Auth::guest())
+                            @if (Auth::user()->role == 'Tengkulak')
+                                @if ($total > $limit->limit && $product->status == 'Tersedia')
+                                    <a href="/cart/{{ $product->id }}"
+                                        class="btn btn-primary {{ $total > $limit->limit ? 'd-block' : 'd-none' }}">Tambah
+                                        Ke Keranjang</a>
+                                @endif
                             @endif
+                        @else
+                            <a href="/login"
+                                class="btn btn-primary d-block">Tambah
+                                Ke Keranjang</a>
                         @endif
                     </div>
                 </div>

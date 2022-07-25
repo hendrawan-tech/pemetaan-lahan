@@ -13,7 +13,7 @@
                 <h6 class="m-0 font-weight-bold text-primary">Form User</h6>
             </div>
             <div class="card-body">
-                <form action="/user/{{ $user->id }}" method="POST">
+                <form action="/users/{{ $user->id }}" method="POST">
                     @method('put')
                     @csrf
                     <div class="row">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <a href="/user" class="d-none d-sm-inline-block mr-2 btn btn-sm pt-2 btn-secondary shadow-sm"><i
+                        <a href="/users" class="d-none d-sm-inline-block mr-2 btn btn-sm pt-2 btn-secondary shadow-sm"><i
                                 class="fas fa-arrow-left fa-sm text-gray-50"></i> Kembali</a>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

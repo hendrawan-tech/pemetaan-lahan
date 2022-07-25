@@ -47,9 +47,11 @@
                                     <li class="nav-item active">
                                         <a class="nav-link text-dark" href="/">Beranda</a>
                                     </li>
-                                    <li class="nav-item active">
-                                        <a class="nav-link text-dark" href="/cart">Keranjang</a>
-                                    </li>
+                                    @if (Auth::user()->role == 'Petani' && Auth::user()->role == 'Tengkulak')
+                                        <li class="nav-item active">
+                                            <a class="nav-link text-dark" href="/cart">Keranjang</a>
+                                        </li>
+                                    @endif
                                     <div class="topbar-divider d-none d-sm-block"></div>
 
                                     <!-- Nav Item - User Information -->
@@ -58,7 +60,8 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span
                                                 class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
-                                            <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                            <img class="img-profile rounded-circle"
+                                                src="{{ Auth::user()->image == '' ? 'https://startbootstrap.github.io/startbootstrap-sb-admin-2/img/undraw_profile.svg' : Auth::user()->image }}">
                                         </a>
                                         <!-- Dropdown - User Information -->
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -67,14 +70,14 @@
                                                 <i class="fas fa-tachometer-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Dashboard
                                             </a>
-                                            <a class="dropdown-item" href="#">
+                                            <a class="dropdown-item" href="/profiles">
                                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                                Profile
+                                                Profil
                                             </a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                                                                document.getElementById('logout-form').submit();"
+                                                                                        document.getElementById('logout-form').submit();"
                                                 data-toggle="modal" data-target="#logoutModal">
                                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                                 Logout

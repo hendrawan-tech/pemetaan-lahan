@@ -122,6 +122,9 @@ class OrderController extends Controller
             'status' => $request->status
         ]);
         $detail = TrackingDetail::where(['user_id' => Auth::user()->id, 'status' => 0])->first();
+        if (!$detail) {
+            $detail = TrackingDetail::where(['user_id' => Auth::user()->id])->first();
+        }
         TrackingItem::create(['tracking_detail_id' => $detail->id, 'user_id' => $order->user_id]);
         $detail->update(['status' => 1]);
         return redirect('orders/' . $order->code . '');

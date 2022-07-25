@@ -42,14 +42,12 @@ class UserController extends Controller
             'email' => 'required|min:3',
             'phone' => 'required|min:3',
             'address' => 'required|min:3',
-            'lattitude' => 'required|min:3',
-            'longitude' => 'required|min:3',
         ]);
         $data['role'] = 'Petani';
         $data['password'] = Hash::make('Default');
 
         User::create($data);
-        return redirect('/user')->with('status', 'User Ditambah');
+        return redirect('/users')->with('status', 'User Ditambah');
     }
 
     /**
@@ -88,12 +86,10 @@ class UserController extends Controller
             'email' => 'required|min:3',
             'phone' => 'required|min:3',
             'address' => 'required|min:3',
-            'lattitude' => 'required|min:3',
-            'longitude' => 'required|min:3',
         ]);
 
         $user->update($data);
-        return redirect('/user')->with('status', 'User Diubah');
+        return redirect('/users')->with('status', 'User Diubah');
     }
 
     /**
@@ -105,6 +101,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('/user')->with('status', 'User Dihapus');
+        return redirect('/users')->with('status', 'User Dihapus');
     }
 }

@@ -32,78 +32,87 @@ class UserSeeder extends Seeder
             'email' => 'saiful@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'Petani',
+            'address' => 'Desa Sumberanyar RT 32 RW 5',
+            'phone' => '08127364773'
         ]);
         User::create([
-            'name' => 'Rahyit',
+            'name' => 'Heri Yanto',
+            'email' => 'heri@gmail.com',
+            'password' => Hash::make('password'),
+            'role' => 'Petani',
+            'address' => 'Desa Sumberanyar RT 30 RW 5',
+            'phone' => '08234747344'
+        ]);
+        User::create([
+            'name' => 'Muhammad Rahyit',
             'email' => 'rahyit@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'Petani',
+            'phone' => '08232432233',
+            'address' => 'Desa Sumberanyar RT 32 RW 5'
         ]);
         User::create([
             'name' => 'Abdullah',
-            'email' => 'dulla@gmail.com',
+            'email' => 'abdullah@gmail.com',
             'password' => Hash::make('password'),
             'role' => 'Petani',
+            'phone' => '08973643334',
+            'address' => 'Desa Sumberanyar RT 32 RW 5'
         ]);
         User::create([
-            'name' => 'Rapik',
+            'name' => 'Rapik Abdillah',
             'email' => 'rapik@gmail.com',
             'password' => Hash::make('password'),
+            'address' => 'Desa Sumberanyar RT 32 RW 5',
+            'phone' => '0824838748',
             'role' => 'Tengkulak',
             'lattitude' => "113.5267590",
             'longitude' => "-7.7091710",
         ]);
         User::create([
-            'name' => 'Tengkulak',
-            'email' => 'tengkulak@gmail.com',
+            'name' => 'Ridwan Basofi',
+            'email' => 'ridwan@gmail.com',
             'password' => Hash::make('password'),
+            'address' => 'Desa Sumberanyar RT 15 RW 2',
+            'phone' => '08533847732',
             'role' => 'Tengkulak',
-            'lattitude' => "113.5277590",
-            'longitude' => "-7.7092710",
+            'lattitude' => "113.527013",
+            'longitude' => "-7.731907",
         ]);
         Land::create([
-            'name' => "Lahan 1",
+            'name' => "Lahan Saiful Bahri",
             'lattitude' => "113.5193120",
             'longitude' => "-7.7208140",
             'status' => "Proses Tanam",
             'large' => "250",
-            'user_id' => 1,
-            'plant_type_id' => 1,
-        ]);
-        Land::create([
-            'name' => "Lahan 2",
-            'lattitude' => 113.519457,
-            'longitude' => -7.720265,
-            'status' => "Proses Tanam",
-            'large' => "125",
-            'user_id' => 1,
-            'plant_type_id' => 1,
-        ]);
-        Land::create([
-            'name' => "Lahan 3",
-            'lattitude' => 113.5227927,
-            'longitude' => -7.7104989,
-            'status' => "Proses Tanam",
-            'large' => "250",
             'user_id' => 2,
             'plant_type_id' => 1,
         ]);
         Land::create([
-            'name' => "Lahan 4",
-            'lattitude' => 113.5227954,
-            'longitude' => -7.7112598,
-            'status' => "Proses Tanam",
-            'large' => "250",
-            'user_id' => 2,
-            'plant_type_id' => 1,
-        ]);
-        Land::create([
-            'name' => "Lahan 5",
-            'lattitude' => 113.5227890,
-            'longitude' => -7.7105448,
+            'name' => "Lahan Heri Yanto",
+            'lattitude' => "113.5227954",
+            'longitude' => "-7.7112598",
             'status' => "Proses Tanam",
             'large' => "350",
             'user_id' => 3,
+            'plant_type_id' => 1,
+        ]);
+        Land::create([
+            'name' => "Lahan M. Rahyit",
+            'lattitude' => 113.5227927,
+            'longitude' => -7.7104989,
+            'status' => "Proses Tanam",
+            'large' => "200",
+            'user_id' => 4,
+            'plant_type_id' => 1,
+        ]);
+        Land::create([
+            'name' => "Lahan Abdullah",
+            'lattitude' => 113.522042,
+            'longitude' => -7.710701,
+            'status' => "Proses Tanam",
+            'large' => "250",
+            'user_id' => 5,
             'plant_type_id' => 1,
         ]);
         Limit::create([
