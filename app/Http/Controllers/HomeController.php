@@ -12,6 +12,8 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Payment;
 use App\Models\Product;
+use App\Models\Tracking;
+use App\Models\TrackingDetail;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -184,5 +186,16 @@ class HomeController extends Controller
     {
         $products = Product::where(['user_id' => $id, 'status' => 'Tersedia'])->get();
         return view('detail-tengkulak', compact('products'));
+    }
+
+    public function tracking($id)
+    {
+        $user = User::where('id', $id)->first();
+        if ($user->role == 'Petani') {
+            $trace = Tracking::where('user_id', $id)->first();
+        } else {
+            $trace = TrackingDetail::where('user_id', $id)->get();
+        }
+        return view('tracking', compact('user', 'trace'));
     }
 }

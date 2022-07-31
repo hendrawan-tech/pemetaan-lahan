@@ -29,6 +29,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/tracking/{id}', [HomeController::class, 'tracking']);
+
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');

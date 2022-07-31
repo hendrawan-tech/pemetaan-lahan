@@ -25,6 +25,15 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-lg-4 col-12">
+                            <div class="form-group">
+                                <label>Luas Laham</label>
+                                <input type="text" name="large" class="form-control" value="{{ old('large') }}">
+                                @error('large')
+                                    <small class="form-text text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="col-lg-6 col-12">
                             <div class="form-group">
                                 <label>Jenis Tanaman</label>

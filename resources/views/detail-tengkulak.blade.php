@@ -22,8 +22,12 @@
                                             <div class="d-flex justify-content-between align-items-start">
                                                 <h5 class="card-title">{{ $product->name }}
                                                 </h5>
-                                                <span
-                                                    class="badge {{ $product->status == 'Tersedia' ? 'badge-success' : 'badge-danger' }}">{{ $product->status }}</span>
+                                                @if ($product->stok == 0)
+                                                    <span class="badge badge-danger">Stok Kosong</span>
+                                                @else
+                                                    <span
+                                                        class="badge {{ $product->status == 'Tersedia' ? 'badge-success' : 'badge-danger' }}">{{ $product->status }}</span>
+                                                @endif
                                             </div>
                                             <span class="card-text">Harga : {{ Helper::price($product->price) }} /kg</span>
                                             <br>
@@ -56,9 +60,11 @@
                                             <p class="card-text">{{ $product->description }}</p>
                                             @if (Auth::user()->role == 'Pembeli')
                                                 @if ($product->status == 'Tersedia')
-                                                    <a href="/cart/{{ $product->id }}"
-                                                        class="btn btn-primary w-full d-block">Tambah
-                                                        Ke Keranjang</a>
+                                                    @if ($product->stok > 0)
+                                                        <a href="/cart/{{ $product->id }}"
+                                                            class="btn btn-primary w-full d-block">Tambah
+                                                            Ke Keranjang</a>
+                                                    @endif
                                                 @endif
                                             @endif
                                         </div>

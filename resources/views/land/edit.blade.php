@@ -17,7 +17,7 @@
                     @method('put')
                     @csrf
                     <div class="row">
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" name="name" class="form-control" value="{{ $land->name }}">
@@ -26,7 +26,16 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12">
+                        <div class="col-lg-4 col-12">
+                            <div class="form-group">
+                                <label>Luas Laham</label>
+                                <input type="text" name="large" class="form-control" value="{{ $land->large }}">
+                                @error('large')
+                                    <small class="form-text text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-12">
                             <div class="form-group">
                                 <label>Jenis Tanaman</label>
                                 <select class="form-control" name="plant_type_id">

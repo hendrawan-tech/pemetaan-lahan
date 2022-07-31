@@ -1642,10 +1642,12 @@
                                                         <span class="card-text">Status : ${data[i].product[0].status}</span><br>
                                                         <span class="card-text">Harga : ${data[i].product[0].price} /kg</span><br>
                                                     <span class="card-text">Jumlah Stok : ${data[i].product[0].stok}</span><br>
-                                                    <a href="/cart/${data[i].product[0].id}" class="btn btn-sm ` +
-                                                                                                                            `<?= $total > $limit->limit ? 'd-block' : 'd-none' ?>` + ` text-white btn-primary mt-3">+Keranjang</a>`} `
+                                                    ${data[i].product[0].stok > 0 ? `<a href="/cart/${data[i].product[0].id}" class="btn btn-sm ` +
+                                                                                                                            `<?= $total > $limit->limit ? 'd-block' : 'd-none' ?>` + ` text-white btn-primary mt-3">+Keranjang</a>` : ``}`} `
                                             : ``}
                             ${data[i].product.length > 0 ?` <a href="/product/${data[i].product[0].id}" class="btn btn-outline-primary btn-sm d-block text-primary mt-1">Lihat Detail</a>`
+                            : ``}
+                            ${data[i].product.length > 0 ?` <a href="/tracking/${data[i].product[0].user_id}" class="btn btn-outline-primary btn-sm d-block text-primary mt-1">Traceability</a>`
                             : ``}
                         </div>
                     </div>`
@@ -1672,6 +1674,7 @@
                         </h5>
                         <span class="card-text">Produk : ${geo[i].product.length}</span>
                         ${geo[i].product.length > 0 ? `<a href="/product/tengkulak/${geo[i].id}" class="btn btn-outline-primary btn-sm d-block text-primary mt-1">Lihat Detail</a>` : ``}
+                        ${geo[i].product.length > 0 ? `<a href="/tracking/${geo[i].product[0].user_id}" class="btn btn-outline-primary btn-sm d-block text-primary mt-1">Traceability</a>` : ``}
                     </div>`
                         L.popup()
                             .setLatLng([parseFloat(geo[i].longitude), parseFloat(geo[i]
